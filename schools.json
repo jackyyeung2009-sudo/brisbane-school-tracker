@@ -1,47 +1,74 @@
 [
   {
     "name": "QA for Science (QASMT)",
-    "openDayUrl": "https://qasmt.eq.edu.au/enrolments/open-days",
-    "examUrl": "https://qasmt.eq.edu.au/enrolments/selective-entry"
+    "openDay": "Selected Friday 8:45AM (WAITING LIST)",
+    "regDate": "8月21日截止",
+    "examDate": "9月5日 - 6日",
+    "openDayUrl": "https://qasmt.eq.edu.au/enrolments/campus-tours",
+    "examUrl": "https://qa.eq.edu.au/enrolments/year7-enrolments"
   },
   {
     "name": "Brisbane State High School",
-    "openDayUrl": "https://brisbaneshs.eq.edu.au/calendar-and-news/events",
-    "examUrl": "https://brisbaneshs.eq.edu.au/enrolments/academic-selective-entry"
+    "openDay": "7月18日 SAT 9:15-10:00AM (需電郵預約)",
+    "regDate": "5月11日 - 6月15日",
+    "examDate": "7月29日",
+    "openDayUrl": "mailto:tours@brisbaneshs.eq.edu.au",
+    "examUrl": "https://brisbaneshs.eq.edu.au/enrolments/enrolling-at-our-school/academic-selective-entry"
   },
   {
-    "name": "Brisbane South State Secondary College",
-    "openDayUrl": "https://brisbanesouthssc.eq.edu.au/calendar-and-news/events",
-    "examUrl": "https://brisbanesouthssc.eq.edu.au/enrolments/enrolment-management-plan"
+    "name": "Brisbane South High (BSSSC)",
+    "openDay": "5月12日 TUE 3:30-5:30PM (BOOKED)",
+    "regDate": "2027年3月 - 5月中",
+    "examDate": "2027年5月",
+    "openDayUrl": "https://brisbanesouthssc.eq.edu.au/enrolments/open-days",
+    "examUrl": "https://brisbanesouthssc.eq.edu.au/curriculum/excellence-programs/biomedical-science-academy"
   },
   {
     "name": "Mt Gravatt State High",
-    "openDayUrl": "https://mtgravattshs.eq.edu.au/calendar-and-news/events",
-    "examUrl": "https://mtgravattshs.eq.edu.au/enrolments"
+    "openDay": "5月14日 THU 9:00AM-11:00AM (WALK-IN)",
+    "regDate": "2027年5月 (EOI & REPORT ONLY)",
+    "examDate": "MUSIC AUDITION in JUNE",
+    "openDayUrl": "https://mtgravattshs.eq.edu.au/enrolments/open-days",
+    "examUrl": "https://mtgravattshs.eq.edu.au/enrolments/enrolling-at-our-school/year-7-2027-enrolments"
   },
   {
     "name": "Mansfield State High",
-    "openDayUrl": "https://mansfieldshs.eq.edu.au/calendar-and-news/events",
-    "examUrl": "https://mansfieldshs.eq.edu.au/enrolments"
+    "openDay": "8月18日 9:00AM (WALK-IN)",
+    "regDate": "2027年4月 - 5月 (EOI & REPORT ONLY)",
+    "examDate": "MUSIC AUDITION in AUG & NOV",
+    "openDayUrl": "https://mansfieldshs.eq.edu.au/enrolments/open-days",
+    "examUrl": "https://mansfieldshs.eq.edu.au/curriculum/programs-of-excellence"
   },
   {
     "name": "MacGregor State High",
-    "openDayUrl": "https://macgregorshs.eq.edu.au/calendar-and-news/events",
-    "examUrl": "https://macgregorshs.eq.edu.au/enrolments"
+    "openDay": "6月16日 TUE 3:00-4:30PM (BOOKING LATE APRIL)",
+    "regDate": "RD1: 2027年4月 - 5月",
+    "examDate": "RD1: 2027年7月 - 8月 (REPORT & DEMO ONLY)",
+    "openDayUrl": "https://macgregorshs.eq.edu.au/enrolments/school-tours",
+    "examUrl": "https://macgregorshs.eq.edu.au/enrolments/enrolling-at-our-school"
   },
   {
-    "name": "St Aidan's Anglican Girls'",
-    "openDayUrl": "https://www.staidans.qld.edu.au/enrolments/open-days/",
-    "examUrl": "https://www.staidans.qld.edu.au/enrolments/scholarships/"
+    "name": "St Aidan's",
+    "openDay": "6月18日 THU 8:30-11:15PM (BOOKED)",
+    "regDate": "2026年10月 - 2027年2月",
+    "examDate": "2027年2月",
+    "openDayUrl": "https://www.staidans.qld.edu.au/open-day",
+    "examUrl": "https://www.staidans.qld.edu.au/senior-school-scholarships"
   },
   {
     "name": "Brisbane Girls Grammar",
-    "openDayUrl": "https://www.bggs.qld.edu.au/enrolments/open-day/",
-    "examUrl": "https://www.bggs.qld.edu.au/enrolments/scholarships/"
+    "openDay": "TERM 3",
+    "regDate": "NA",
+    "examDate": "NA",
+    "openDayUrl": "https://enrol.bggs.qld.edu.au/form/campus-visit-interest/",
+    "examUrl": "https://www.bggs.qld.edu.au/"
   },
   {
-    "name": "St Peter's (Indooroopilly)",
-    "openDayUrl": "https://www.stpeters.qld.edu.au/indooroopilly/events",
-    "examUrl": "https://www.stpeters.qld.edu.au/indooroopilly/enrolments/scholarships"
+    "name": "St Peter's",
+    "openDay": "TOUR BOOKING (需電郵預約)",
+    "regDate": "2026年10月 - 2027年2月",
+    "examDate": "2027年2月",
+    "openDayUrl": "mailto:admissions@stpeters.qld.edu.au",
+    "examUrl": "https://www.stpeters.qld.edu.au/indooroopilly/admissions/scholarships/academic"
   }
 ]
