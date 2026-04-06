@@ -1,11 +1,47 @@
 [
-  {"name": "QA for Science (QASMT)", "url": "https://qasmt.eq.edu.au/enrolments/selective-entry"},
-  {"name": "Brisbane State High School", "url": "https://brisbaneshs.eq.edu.au/enrolments/academic-selective-entry"},
-  {"name": "Brisbane South State Secondary College", "url": "https://brisbanesouthssc.eq.edu.au/enrolments"},
-  {"name": "Mt Gravatt State High", "url": "https://mtgravattshs.eq.edu.au/enrolments"},
-  {"name": "Mansfield State High", "url": "https://mansfieldshs.eq.edu.au/enrolments"},
-  {"name": "MacGregor State High", "url": "https://macgregorshs.eq.edu.au/enrolments"},
-  {"name": "St Aidan's Anglican Girls' School", "url": "https://www.staidans.qld.edu.au/enrolments/open-days/"},
-  {"name": "Brisbane Girls Grammar School", "url": "https://www.bggs.qld.edu.au/enrolments/open-day/"},
-  {"name": "St Peter's Lutheran College", "url": "https://www.stpeters.qld.edu.au/indooroopilly/events"}
+  {
+    "name": "QA for Science (QASMT)",
+    "openDayUrl": "https://qasmt.eq.edu.au/enrolments/open-days",
+    "examUrl": "https://qasmt.eq.edu.au/enrolments/selective-entry"
+  },
+  {
+    "name": "Brisbane State High School",
+    "openDayUrl": "https://brisbaneshs.eq.edu.au/calendar-and-news/events",
+    "examUrl": "https://brisbaneshs.eq.edu.au/enrolments/academic-selective-entry"
+  },
+  {
+    "name": "Brisbane South State Secondary College",
+    "openDayUrl": "https://brisbanesouthssc.eq.edu.au/calendar-and-news/events",
+    "examUrl": "https://brisbanesouthssc.eq.edu.au/enrolments/enrolment-management-plan"
+  },
+  {
+    "name": "Mt Gravatt State High",
+    "openDayUrl": "https://mtgravattshs.eq.edu.au/calendar-and-news/events",
+    "examUrl": "https://mtgravattshs.eq.edu.au/enrolments"
+  },
+  {
+    "name": "Mansfield State High",
+    "openDayUrl": "https://mansfieldshs.eq.edu.au/calendar-and-news/events",
+    "examUrl": "https://mansfieldshs.eq.edu.au/enrolments"
+  },
+  {
+    "name": "MacGregor State High",
+    "openDayUrl": "https://macgregorshs.eq.edu.au/calendar-and-news/events",
+    "examUrl": "https://macgregorshs.eq.edu.au/enrolments"
+  },
+  {
+    "name": "St Aidan's Anglican Girls'",
+    "openDayUrl": "https://www.staidans.qld.edu.au/enrolments/open-days/",
+    "examUrl": "https://www.staidans.qld.edu.au/enrolments/scholarships/"
+  },
+  {
+    "name": "Brisbane Girls Grammar",
+    "openDayUrl": "https://www.bggs.qld.edu.au/enrolments/open-day/",
+    "examUrl": "https://www.bggs.qld.edu.au/enrolments/scholarships/"
+  },
+  {
+    "name": "St Peter's (Indooroopilly)",
+    "openDayUrl": "https://www.stpeters.qld.edu.au/indooroopilly/events",
+    "examUrl": "https://www.stpeters.qld.edu.au/indooroopilly/enrolments/scholarships"
+  }
 ]
