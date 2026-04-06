@@ -1,23 +1,7 @@
 [
   {
-    "name": "QA for Science (QASMT)",
-    "openDay": "Selected Friday 8:45AM (WAITING LIST)",
-    "regDate": "8月21日截止",
-    "examDate": "9月5日 - 6日",
-    "openDayUrl": "https://qasmt.eq.edu.au/enrolments/campus-tours",
-    "examUrl": "https://qa.eq.edu.au/enrolments/year7-enrolments"
-  },
-  {
-    "name": "Brisbane State High School",
-    "openDay": "7月18日 SAT 9:15-10:00AM (需電郵預約)",
-    "regDate": "5月11日 - 6月15日",
-    "examDate": "7月29日",
-    "openDayUrl": "mailto:tours@brisbaneshs.eq.edu.au",
-    "examUrl": "https://brisbaneshs.eq.edu.au/enrolments/enrolling-at-our-school/academic-selective-entry"
-  },
-  {
     "name": "Brisbane South High (BSSSC)",
-    "openDay": "5月12日 TUE 3:30-5:30PM (BOOKED)",
+    "openDay": "2026年5月12日 TUE 3:30-5:30PM (BOOKED)",
     "regDate": "2027年3月 - 5月中",
     "examDate": "2027年5月",
     "openDayUrl": "https://brisbanesouthssc.eq.edu.au/enrolments/open-days",
@@ -25,31 +9,47 @@
   },
   {
     "name": "Mt Gravatt State High",
-    "openDay": "5月14日 THU 9:00AM-11:00AM (WALK-IN)",
+    "openDay": "2026年5月14日 THU 9:00AM-11:00AM (WALK-IN)",
     "regDate": "2027年5月 (EOI & REPORT ONLY)",
-    "examDate": "MUSIC AUDITION in JUNE",
+    "examDate": "2027年6月 MUSIC AUDITION",
     "openDayUrl": "https://mtgravattshs.eq.edu.au/enrolments/open-days",
     "examUrl": "https://mtgravattshs.eq.edu.au/enrolments/enrolling-at-our-school/year-7-2027-enrolments"
   },
   {
+    "name": "Brisbane State High School",
+    "openDay": "2026年7月18日 SAT 9:15-10:00AM (需電郵預約)",
+    "regDate": "2026年5月11日 - 6月15日",
+    "examDate": "2026年7月29日",
+    "openDayUrl": "mailto:tours@brisbaneshs.eq.edu.au",
+    "examUrl": "https://brisbaneshs.eq.edu.au/enrolments/enrolling-at-our-school/academic-selective-entry"
+  },
+  {
     "name": "Mansfield State High",
-    "openDay": "8月18日 9:00AM (WALK-IN)",
+    "openDay": "2026年8月18日 9:00AM (WALK-IN)",
     "regDate": "2027年4月 - 5月 (EOI & REPORT ONLY)",
-    "examDate": "MUSIC AUDITION in AUG & NOV",
+    "examDate": "2027年8月 & 11月 MUSIC AUDITION",
     "openDayUrl": "https://mansfieldshs.eq.edu.au/enrolments/open-days",
     "examUrl": "https://mansfieldshs.eq.edu.au/curriculum/programs-of-excellence"
   },
   {
     "name": "MacGregor State High",
-    "openDay": "6月16日 TUE 3:00-4:30PM (BOOKING LATE APRIL)",
+    "openDay": "2026年6月16日 TUE 3:00-4:30PM (BOOKING LATE APRIL)",
     "regDate": "RD1: 2027年4月 - 5月",
     "examDate": "RD1: 2027年7月 - 8月 (REPORT & DEMO ONLY)",
     "openDayUrl": "https://macgregorshs.eq.edu.au/enrolments/school-tours",
     "examUrl": "https://macgregorshs.eq.edu.au/enrolments/enrolling-at-our-school"
   },
   {
+    "name": "QA for Science (QASMT)",
+    "openDay": "2026年Selected Friday 8:45AM (WAITING LIST)",
+    "regDate": "2026年8月21日截止",
+    "examDate": "2026年9月5日 - 6日",
+    "openDayUrl": "https://qasmt.eq.edu.au/enrolments/campus-tours",
+    "examUrl": "https://qa.eq.edu.au/enrolments/year7-enrolments"
+  },
+  {
     "name": "St Aidan's",
-    "openDay": "6月18日 THU 8:30-11:15PM (BOOKED)",
+    "openDay": "2026年6月18日 THU 8:30-11:15PM (BOOKED)",
     "regDate": "2026年10月 - 2027年2月",
     "examDate": "2027年2月",
     "openDayUrl": "https://www.staidans.qld.edu.au/open-day",
@@ -57,7 +57,7 @@
   },
   {
     "name": "Brisbane Girls Grammar",
-    "openDay": "TERM 3",
+    "openDay": "2026年TERM 3",
     "regDate": "NA",
     "examDate": "NA",
     "openDayUrl": "https://enrol.bggs.qld.edu.au/form/campus-visit-interest/",
@@ -65,7 +65,7 @@
   },
   {
     "name": "St Peter's",
-    "openDay": "TOUR BOOKING (需電郵預約)",
+    "openDay": "2026年TOUR BOOKING (需電郵預約)",
     "regDate": "2026年10月 - 2027年2月",
     "examDate": "2027年2月",
     "openDayUrl": "mailto:admissions@stpeters.qld.edu.au",
