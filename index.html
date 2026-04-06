@@ -4,135 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布里斯本名校情報站 4.0</title>
+    <title>布里斯本名校情報站 5.0 - 智能排序版</title>
     <style>
-        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; padding: 20px; background: #f8f9fa; color: #2c3e50; }
+        body { font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; background: #f4f7f9; color: #333; }
         .container { max-width: 900px; margin: auto; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; }
-        .time { text-align: center; color: #7f8c8d; font-size: 0.9em; margin-bottom: 30px; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; width: 100%; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
-        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
-        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #3498db; }
-        h2 { margin: 0 0 15px 0; color: #2980b9; font-size: 1.3em; }
-        .info-row { margin-bottom: 8px; font-size: 0.95em; display: flex; align-items: baseline; }
-        .label { font-weight: bold; min-width: 90px; color: #34495e; }
-        .value { color: #16a085; font-weight: 500; }
-        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-        .btn { flex: 1; text-align: center; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9em; transition: 0.3s; }
-        .btn-openday { background: #27ae60; }
-        .btn-openday:hover { background: #219150; }
-        .btn-exam { background: #2980b9; }
-        .btn-exam:hover { background: #21618c; }
-        .footer { text-align: center; margin-top: 40px; color: #bdc3c7; font-size: 0.8em; }
+        h1 { text-align: center; color: #2c3e50; }
+        .time { text-align: center; color: #7f8c8d; font-size: 0.9em; margin-bottom: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px; width: 100%; display: block; }
+        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #3498db; }
+        .card:nth-child(2) { border-left-color: #e74c3c; } /* 第一名顯示紅色提醒，代表最接近 */
+        h2 { margin: 0 0 10px 0; color: #2980b9; }
+        .info { font-size: 0.95em; margin-bottom: 5px; }
+        .label { font-weight: bold; color: #555; width: 100px; display: inline-block; }
+        .val { color: #27ae60; font-weight: bold; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .btn { flex: 1; text-align: center; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9em; }
+        .btn-blue { background: #3498db; }
+        .btn-green { background: #27ae60; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎓 布里斯本入學情報站 4.0</h1>
-        <p class="time">最後自動巡邏時間：2026-04-06 15:56:14 (AEST)</p>
-        <div class="card-grid">
+        <h1>🎓 布里斯本名校情報站 5.0</h1>
+        <p class="time">🚀 智能排序模式已啟動 | 更新時間：2026-04-06 16:03:16</p>
 
     <div class="card">
-        <h2>QA for Science (QASMT)</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">Selected Friday 8:45AM (WAITING LIST)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">8月21日截止</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">9月5日 - 6日</span></div>
-        <div class="btn-group">
-            <a href="https://qasmt.eq.edu.au/enrolments/campus-tours" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://qa.eq.edu.au/enrolments/year7-enrolments" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Brisbane State High School</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">7月18日 SAT 9:15-10:00AM (需電郵預約)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">5月11日 - 6月15日</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">7月29日</span></div>
-        <div class="btn-group">
-            <a href="mailto:tours@brisbaneshs.eq.edu.au" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://brisbaneshs.eq.edu.au/enrolments/enrolling-at-our-school/academic-selective-entry" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
-        </div>
-    </div>
-    
-    <div class="card">
         <h2>Brisbane South High (BSSSC)</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">5月12日 TUE 3:30-5:30PM (BOOKED)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">2027年3月 - 5月中</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">2027年5月</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">5月12日 TUE 3:30-5:30PM (BOOKED)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">2027年3月 - 5月中</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">2027年5月</span></div>
         <div class="btn-group">
-            <a href="https://brisbanesouthssc.eq.edu.au/enrolments/open-days" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://brisbanesouthssc.eq.edu.au/curriculum/excellence-programs/biomedical-science-academy" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="https://brisbanesouthssc.eq.edu.au/enrolments/open-days" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://brisbanesouthssc.eq.edu.au/curriculum/excellence-programs/biomedical-science-academy" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
     
     <div class="card">
         <h2>Mt Gravatt State High</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">5月14日 THU 9:00AM-11:00AM (WALK-IN)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">2027年5月 (EOI & REPORT ONLY)</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">MUSIC AUDITION in JUNE</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">5月14日 THU 9:00AM-11:00AM (WALK-IN)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">2027年5月 (EOI & REPORT ONLY)</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">MUSIC AUDITION in JUNE</span></div>
         <div class="btn-group">
-            <a href="https://mtgravattshs.eq.edu.au/enrolments/open-days" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://mtgravattshs.eq.edu.au/enrolments/enrolling-at-our-school/year-7-2027-enrolments" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Mansfield State High</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">8月18日 9:00AM (WALK-IN)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">2027年4月 - 5月 (EOI & REPORT ONLY)</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">MUSIC AUDITION in AUG & NOV</span></div>
-        <div class="btn-group">
-            <a href="https://mansfieldshs.eq.edu.au/enrolments/open-days" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://mansfieldshs.eq.edu.au/curriculum/programs-of-excellence" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="https://mtgravattshs.eq.edu.au/enrolments/open-days" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://mtgravattshs.eq.edu.au/enrolments/enrolling-at-our-school/year-7-2027-enrolments" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
     
     <div class="card">
         <h2>MacGregor State High</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">6月16日 TUE 3:00-4:30PM (BOOKING LATE APRIL)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">RD1: 2027年4月 - 5月</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">RD1: 2027年7月 - 8月 (REPORT & DEMO ONLY)</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">6月16日 TUE 3:00-4:30PM (BOOKING LATE APRIL)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">RD1: 2027年4月 - 5月</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">RD1: 2027年7月 - 8月 (REPORT & DEMO ONLY)</span></div>
         <div class="btn-group">
-            <a href="https://macgregorshs.eq.edu.au/enrolments/school-tours" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://macgregorshs.eq.edu.au/enrolments/enrolling-at-our-school" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="https://macgregorshs.eq.edu.au/enrolments/school-tours" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://macgregorshs.eq.edu.au/enrolments/enrolling-at-our-school" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
     
     <div class="card">
         <h2>St Aidan's</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">6月18日 THU 8:30-11:15PM (BOOKED)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">2026年10月 - 2027年2月</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">2027年2月</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">6月18日 THU 8:30-11:15PM (BOOKED)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">2026年10月 - 2027年2月</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">2027年2月</span></div>
         <div class="btn-group">
-            <a href="https://www.staidans.qld.edu.au/open-day" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://www.staidans.qld.edu.au/senior-school-scholarships" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="https://www.staidans.qld.edu.au/open-day" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://www.staidans.qld.edu.au/senior-school-scholarships" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Brisbane State High School</h2>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">7月18日 SAT 9:15-10:00AM (需電郵預約)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">5月11日 - 6月15日</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">7月29日</span></div>
+        <div class="btn-group">
+            <a href="mailto:tours@brisbaneshs.eq.edu.au" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://brisbaneshs.eq.edu.au/enrolments/enrolling-at-our-school/academic-selective-entry" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Mansfield State High</h2>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">8月18日 9:00AM (WALK-IN)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">2027年4月 - 5月 (EOI & REPORT ONLY)</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">MUSIC AUDITION in AUG & NOV</span></div>
+        <div class="btn-group">
+            <a href="https://mansfieldshs.eq.edu.au/enrolments/open-days" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://mansfieldshs.eq.edu.au/curriculum/programs-of-excellence" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>QA for Science (QASMT)</h2>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">Selected Friday 8:45AM (WAITING LIST)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">8月21日截止</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">9月5日 - 6日</span></div>
+        <div class="btn-group">
+            <a href="https://qasmt.eq.edu.au/enrolments/campus-tours" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://qa.eq.edu.au/enrolments/year7-enrolments" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
     
     <div class="card">
         <h2>Brisbane Girls Grammar</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">TERM 3</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">NA</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">NA</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">TERM 3</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">NA</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">NA</span></div>
         <div class="btn-group">
-            <a href="https://enrol.bggs.qld.edu.au/form/campus-visit-interest/" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://www.bggs.qld.edu.au/" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="https://enrol.bggs.qld.edu.au/form/campus-visit-interest/" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://www.bggs.qld.edu.au/" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
     
     <div class="card">
         <h2>St Peter's</h2>
-        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">TOUR BOOKING (需電郵預約)</span></div>
-        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">2026年10月 - 2027年2月</span></div>
-        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">2027年2月</span></div>
+        <div class="info"><span class="label">📅 開放日：</span><span class="val">TOUR BOOKING (需電郵預約)</span></div>
+        <div class="info"><span class="label">📝 報名期：</span><span class="val">2026年10月 - 2027年2月</span></div>
+        <div class="info"><span class="label">🔥 考試日：</span><span class="val">2027年2月</span></div>
         <div class="btn-group">
-            <a href="mailto:admissions@stpeters.qld.edu.au" class="btn btn-openday" target="_blank">📅 開放日連結</a>
-            <a href="https://www.stpeters.qld.edu.au/indooroopilly/admissions/scholarships/academic" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
+            <a href="mailto:admissions@stpeters.qld.edu.au" class="btn btn-green" target="_blank">📅 開放日連結</a>
+            <a href="https://www.stpeters.qld.edu.au/indooroopilly/admissions/scholarships/academic" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
         </div>
     </div>
-    
-        </div>
-        <div class="footer">由 Jack 的自動化算力引擎代勞分憂，每日自動更新。</div>
-    </div>
-</body>
-</html>
+    </div></body></html>
