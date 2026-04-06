@@ -8,75 +8,75 @@ bne_tz = pytz.timezone('Australia/Brisbane')
 now = datetime.datetime.now(bne_tz)
 update_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
-# 讀取剛升級的 JSON 資料庫
-with open('schools.json', 'r', encoding='utf-8') as f:
-    schools = json.load(f)
+# 讀取 schools.json 資料庫
+try:
+    with open('schools.json', 'r', encoding='utf-8') as f:
+        schools = json.load(f)
+except Exception as e:
+    print(f"讀取 JSON 失敗: {e}")
+    schools = []
 
-# HTML 模板頭部與 CSS 視覺優化 (支援雙按鈕並排)
+# HTML 模板頭部與視覺美化
 html = f"""
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布里斯本名校情報站 2.0</title>
+    <title>布里斯本名校情報站 4.0</title>
     <style>
-        body {{ font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; background: #f0f2f5; color: #1c1e21; }}
-        .container {{ max-width: 800px; margin: auto; }}
-        h1 {{ text-align: center; color: #1a73e8; }}
-        .time {{ text-align: center; color: #666; font-size: 0.9em; margin-bottom: 30px; }}
-        .card {{ background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }}
-        .card:hover {{ transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }}
-        h2 {{ margin-top: 0; color: #202124; font-size: 1.2em; border-bottom: 2px solid #e8eaed; padding-bottom: 10px; }}
-        .btn-group {{ display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }}
-        .btn {{ flex: 1; text-align: center; color: white; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; min-width: 140px; box-sizing: border-box; }}
-        .btn-openday {{ background: #34a853; }}
-        .btn-openday:hover {{ background: #2b8c46; }}
-        .btn-exam {{ background: #1a73e8; }}
-        .btn-exam:hover {{ background: #1557b0; }}
-        .btn-disabled {{ background: #cccccc; cursor: not-allowed; color: #666; }}
-        .status {{ font-size: 0.85em; color: #5f6368; font-weight: bold; }}
+        body {{ font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; padding: 20px; background: #f8f9fa; color: #2c3e50; }}
+        .container {{ max-width: 900px; margin: auto; }}
+        h1 {{ text-align: center; color: #2c3e50; margin-bottom: 5px; }}
+        .time {{ text-align: center; color: #7f8c8d; font-size: 0.9em; margin-bottom: 30px; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; width: 100%; }}
+        .card-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }}
+        @media (max-width: 500px) {{ .card-grid {{ grid-template-columns: 1fr; }} }}
+        .card {{ background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #3498db; }}
+        h2 {{ margin: 0 0 15px 0; color: #2980b9; font-size: 1.3em; }}
+        .info-row {{ margin-bottom: 8px; font-size: 0.95em; display: flex; align-items: baseline; }}
+        .label {{ font-weight: bold; min-width: 90px; color: #34495e; }}
+        .value {{ color: #16a085; font-weight: 500; }}
+        .btn-group {{ display: flex; gap: 10px; margin-top: 20px; }}
+        .btn {{ flex: 1; text-align: center; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9em; transition: 0.3s; }}
+        .btn-openday {{ background: #27ae60; }}
+        .btn-openday:hover {{ background: #219150; }}
+        .btn-exam {{ background: #2980b9; }}
+        .btn-exam:hover {{ background: #21618c; }}
+        .footer {{ text-align: center; margin-top: 40px; color: #bdc3c7; font-size: 0.8em; }}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎓 布里斯本入學情報站 2.0</h1>
-        <p class="time">資料更新日期 (AEST)：{update_time}</p>
+        <h1>🎓 布里斯本入學情報站 4.0</h1>
+        <p class="time">最後自動巡邏時間：{update_time} (AEST)</p>
+        <div class="card-grid">
 """
 
-# 遍歷資料庫，生成雙通道按鈕卡片
+# 生成卡片邏輯
 for s in schools:
-    open_day_url = s.get('openDayUrl', '#')
-    exam_url = s.get('examUrl', '#')
-    
     html += f"""
     <div class="card">
-        <h2>{s['name']}</h2>
-        <p class="status">⚡ 雙引擎掛載完畢，請點擊下方專屬通道直達官方陣地。</p>
+        <h2>{s.get('name', '未命名學校')}</h2>
+        <div class="info-row"><span class="label">📅 開放日：</span><span class="value">{s.get('openDay', '待確認')}</span></div>
+        <div class="info-row"><span class="label">📝 報名期：</span><span class="value">{s.get('regDate', '待確認')}</span></div>
+        <div class="info-row"><span class="label">🔥 考試日：</span><span class="value">{s.get('examDate', '待確認')}</span></div>
         <div class="btn-group">
-    """
-    
-    # 開放日通道邏輯
-    if open_day_url != '#' and open_day_url != '':
-        html += f'<a href="{open_day_url}" class="btn btn-openday" target="_blank">📅 開放日情報</a>'
-    else:
-        html += f'<span class="btn btn-disabled">📅 暫無開放日連結</span>'
-
-    # 考試/獎學金通道邏輯
-    if exam_url != '#' and exam_url != '':
-        html += f'<a href="{exam_url}" class="btn btn-exam" target="_blank">📝 考試與入學情報</a>'
-    else:
-         html += f'<span class="btn btn-disabled">📝 暫無考試連結</span>'
-
-    html += """
+            <a href="{s.get('openDayUrl', '#')}" class="btn btn-openday" target="_blank">📅 開放日連結</a>
+            <a href="{s.get('examUrl', '#')}" class="btn btn-exam" target="_blank">📝 報名與考試情報</a>
         </div>
     </div>
     """
 
-html += "</div></body></html>"
+html += """
+        </div>
+        <div class="footer">由 Jack 的自動化算力引擎代勞分憂，每日自動更新。</div>
+    </div>
+</body>
+</html>
+"""
 
-# 寫入靜態網頁檔案
+# 寫入最終網頁檔
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html)
-    
-print("情報站 2.0 HTML 檔案生成完畢！")
+
+print("✅ 佈署完畢：情報站 4.0 已成功生成。")
