@@ -4,77 +4,68 @@ import datetime
 import pytz
 import re
 
-# 設定時區
 bne_tz = pytz.timezone('Australia/Brisbane')
 now = datetime.datetime.now(bne_tz)
 update_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
-# 讀取資料
-try:
-    with open('schools.json', 'r', encoding='utf-8') as f:
-        schools = json.load(f)
-except Exception as e:
-    print(f"讀取失敗: {e}")
-    schools = []
+with open('schools.json', 'r', encoding='utf-8') as f:
+    schools = json.load(f)
 
-# --- 核心排序邏輯：提取開放日日期進行排序 ---
 def get_sort_date(school):
     date_str = school.get('openDay', '')
-    # 尋找月份與日期 (例如: 5月12日)
-    match = re.search(r'(\d+)月(\d+)日', date_str)
+    # 正則表達式抓取: 年、月、日
+    match = re.search(r'(\d+)年(\d+)月(\d+)日', date_str)
     if match:
-        month = int(match.group(1))
-        day = int(match.group(2))
-        # 判定年份：沒寫 2027 即為 2026
-        year = 2027 if '2027' in date_str else 2026
-        return datetime.datetime(year, month, day)
-    # 若無日期格式，排在最後面 (給予一個遙遠的未來日期)
+        return datetime.datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
+    
+    # 若只有年份+TERM (例如 2026年TERM 3)，給予該年 7 月中旬排序
+    year_match = re.search(r'(\d+)年', date_str)
+    if year_match:
+        return datetime.datetime(int(year_match.group(1)), 7, 15)
+    
     return datetime.datetime(2099, 12, 31)
 
-# 執行排序 (由近到遠)
+# 由近到遠排序
 schools.sort(key=get_sort_date)
 
-# --- HTML 生成 ---
 html = f"""
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布里斯本名校情報站 5.0 - 智能排序版</title>
+    <title>布里斯本名校情報站 終極排序版</title>
     <style>
-        body {{ font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; background: #f4f7f9; color: #333; }}
-        .container {{ max-width: 900px; margin: auto; }}
-        h1 {{ text-align: center; color: #2c3e50; }}
-        .time {{ text-align: center; color: #7f8c8d; font-size: 0.9em; margin-bottom: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px; width: 100%; display: block; }}
-        .card {{ background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #3498db; }}
-        .card:nth-child(2) {{ border-left-color: #e74c3c; }} /* 第一名顯示紅色提醒，代表最接近 */
-        h2 {{ margin: 0 0 10px 0; color: #2980b9; }}
-        .info {{ font-size: 0.95em; margin-bottom: 5px; }}
-        .label {{ font-weight: bold; color: #555; width: 100px; display: inline-block; }}
-        .val {{ color: #27ae60; font-weight: bold; }}
-        .btn-group {{ display: flex; gap: 10px; margin-top: 15px; }}
-        .btn {{ flex: 1; text-align: center; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9em; }}
-        .btn-blue {{ background: #3498db; }}
-        .btn-green {{ background: #27ae60; }}
+        body {{ font-family: -apple-system, sans-serif; padding: 20px; background: #f0f4f8; color: #333; }}
+        .container {{ max-width: 800px; margin: auto; }}
+        .time {{ text-align: center; color: #666; font-size: 0.8em; margin-bottom: 20px; }}
+        .card {{ background: white; border-radius: 10px; padding: 15px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 5px solid #3498db; }}
+        h2 {{ margin: 0; font-size: 1.2em; color: #2c3e50; }}
+        .row {{ font-size: 0.9em; margin: 5px 0; }}
+        .label {{ font-weight: bold; color: #555; }}
+        .val {{ color: #27ae60; }}
+        .btn-group {{ display: flex; gap: 8px; margin-top: 10px; }}
+        .btn {{ flex: 1; text-align: center; color: white; padding: 8px; border-radius: 5px; text-decoration: none; font-size: 0.85em; font-weight: bold; }}
+        .bg-green {{ background: #2ecc71; }}
+        .bg-blue {{ background: #3498db; }}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎓 布里斯本名校情報站 5.0</h1>
-        <p class="time">🚀 智能排序模式已啟動 | 更新時間：{update_time}</p>
+        <h1 style="text-align:center;">🎓 布里斯本入學情報站</h1>
+        <p class="time">精準排序更新：{update_time}</p>
 """
 
 for s in schools:
     html += f"""
     <div class="card">
         <h2>{s['name']}</h2>
-        <div class="info"><span class="label">📅 開放日：</span><span class="val">{s.get('openDay', '待確認')}</span></div>
-        <div class="info"><span class="label">📝 報名期：</span><span class="val">{s.get('regDate', '待確認')}</span></div>
-        <div class="info"><span class="label">🔥 考試日：</span><span class="val">{s.get('examDate', '待確認')}</span></div>
+        <div class="row"><span class="label">📅 開放日：</span><span class="val">{s['openDay']}</span></div>
+        <div class="row"><span class="label">📝 報名期：</span><span class="val">{s['regDate']}</span></div>
+        <div class="row"><span class="label">🔥 考試日：</span><span class="val">{s['examDate']}</span></div>
         <div class="btn-group">
-            <a href="{s.get('openDayUrl', '#')}" class="btn btn-green" target="_blank">📅 開放日連結</a>
-            <a href="{s.get('examUrl', '#')}" class="btn btn-blue" target="_blank">📝 考試報名情報</a>
+            <a href="{s['openDayUrl']}" class="btn bg-green" target="_blank">📅 開放日連結</a>
+            <a href="{s['examUrl']}" class="btn bg-blue" target="_blank">📝 報名與考試</a>
         </div>
     </div>
     """
