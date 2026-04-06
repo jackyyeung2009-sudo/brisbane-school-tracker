@@ -1,5 +1,4 @@
 import json
-import urllib.request
 import datetime
 import pytz
 import re
@@ -11,22 +10,16 @@ update_time = now.strftime("%Y-%m-%d %H:%M:%S")
 with open('schools.json', 'r', encoding='utf-8') as f:
     schools = json.load(f)
 
-def get_sort_date(school):
-    date_str = school.get('openDay', '')
-    # 正則表達式抓取: 年、月、日
-    match = re.search(r'(\d+)年(\d+)月(\d+)日', date_str)
+def get_deadline_date(school):
+    reg_str = school.get('regDate', '')
+    # 優先抓取報名期內的日期 (例如 5月11日 或 8月21日)
+    match = re.search(r'(\d+)年(\d+)月(\d+)日', reg_str)
     if match:
         return datetime.datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
-    
-    # 若只有年份+TERM (例如 2026年TERM 3)，給予該年 7 月中旬排序
-    year_match = re.search(r'(\d+)年', date_str)
-    if year_match:
-        return datetime.datetime(int(year_match.group(1)), 7, 15)
-    
     return datetime.datetime(2099, 12, 31)
 
-# 由近到遠排序
-schools.sort(key=get_sort_date)
+# 核心排序：按報名日期由近到遠
+schools.sort(key=get_deadline_date)
 
 html = f"""
 <!DOCTYPE html>
@@ -34,39 +27,34 @@ html = f"""
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布里斯本名校情報站 終極排序版</title>
+    <title>布里斯本入學生死線 6.0</title>
     <style>
-        body {{ font-family: -apple-system, sans-serif; padding: 20px; background: #f0f4f8; color: #333; }}
+        body {{ font-family: -apple-system, sans-serif; padding: 20px; background: #fdf2f2; color: #333; }}
         .container {{ max-width: 800px; margin: auto; }}
-        .time {{ text-align: center; color: #666; font-size: 0.8em; margin-bottom: 20px; }}
-        .card {{ background: white; border-radius: 10px; padding: 15px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 5px solid #3498db; }}
-        h2 {{ margin: 0; font-size: 1.2em; color: #2c3e50; }}
-        .row {{ font-size: 0.9em; margin: 5px 0; }}
-        .label {{ font-weight: bold; color: #555; }}
-        .val {{ color: #27ae60; }}
-        .btn-group {{ display: flex; gap: 8px; margin-top: 10px; }}
-        .btn {{ flex: 1; text-align: center; color: white; padding: 8px; border-radius: 5px; text-decoration: none; font-size: 0.85em; font-weight: bold; }}
-        .bg-green {{ background: #2ecc71; }}
-        .bg-blue {{ background: #3498db; }}
+        .card {{ background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; border-left: 8px solid #e74c3c; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }}
+        .deadline-box {{ background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 10px; }}
+        h2 {{ margin: 0; font-size: 1.3em; color: #c0392b; }}
+        .row {{ font-size: 1em; margin: 8px 0; }}
+        .label {{ font-weight: bold; color: #7f8c8d; min-width: 100px; display: inline-block; }}
+        .highlight {{ color: #e74c3c; font-weight: 900; font-size: 1.1em; }}
+        .btn {{ display: block; text-align: center; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; background: #2c3e50; }}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align:center;">🎓 布里斯本入學情報站</h1>
-        <p class="time">精準排序更新：{update_time}</p>
+        <h1 style="text-align:center;">🔥 布里斯本名校：報名生死線排序</h1>
+        <p style="text-align:center; color:#666;">忘了報名便沒戲了！系統已按報名截止日自動排序</p>
 """
 
 for s in schools:
     html += f"""
     <div class="card">
+        <div class="deadline-box">🚨 報名優先級</div>
         <h2>{s['name']}</h2>
-        <div class="row"><span class="label">📅 開放日：</span><span class="val">{s['openDay']}</span></div>
-        <div class="row"><span class="label">📝 報名期：</span><span class="val">{s['regDate']}</span></div>
-        <div class="row"><span class="label">🔥 考試日：</span><span class="val">{s['examDate']}</span></div>
-        <div class="btn-group">
-            <a href="{s['openDayUrl']}" class="btn bg-green" target="_blank">📅 開放日連結</a>
-            <a href="{s['examUrl']}" class="btn bg-blue" target="_blank">📝 報名與考試</a>
-        </div>
+        <div class="row"><span class="label">✍️ 報名日期：</span><span class="highlight">{s['regDate']}</span></div>
+        <div class="row"><span class="label">📅 開放日：</span><span>{s['openDay']}</span></div>
+        <div class="row"><span class="label">🔥 考試日期：</span><span>{s['examDate']}</span></div>
+        <a href="{s['examUrl']}" class="btn" target="_blank">立即前往報名官網</a>
     </div>
     """
 
