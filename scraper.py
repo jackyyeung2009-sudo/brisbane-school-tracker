@@ -27,7 +27,7 @@ html = f"""
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布里斯本入學生死線 6.0</title>
+    <title>布里斯本中學報考時間表 6.0</title>
     <style>
         body {{ font-family: -apple-system, sans-serif; padding: 20px; background: #fdf2f2; color: #333; }}
         .container {{ max-width: 800px; margin: auto; }}
@@ -42,8 +42,8 @@ html = f"""
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align:center;">🔥 布里斯本名校：報名生死線排序</h1>
-        <p style="text-align:center; color:#666;">忘了報名便沒戲了！系統已按報名截止日自動排序</p>
+        <h1 style="text-align:center;">🔥 布里斯本中學報考時間表</h1>
+        <p style="text-align:center; color:#666;">報名截止日自動排序</p>
 """
 
 for s in schools:
